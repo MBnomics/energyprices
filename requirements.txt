@@ -1,6 +1,8 @@
-pandas>=2.0.0
-plotly>=5.13.0
-dbnomics-python-client>=0.3.0
+pandas
+plotly
+dbnomics
 notebook>=7.0.0
 jupyterlab>=4.0.0
 ipykernel>=6.0.0
+streamlit
+streamlit-option-menu

@@ -1,6 +1,8 @@
 # %%
+import numpy as np
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from dbnomics import fetch_series
 
 inflation_rate = fetch_series(
@@ -42,51 +44,47 @@ inflation_rate = fetch_series(
         ],
     },
 )
-df_ir = inflation_rate[["period", "value", "Geopolitical entity (reporting)"]]
-df_ir
+df_ir = inflation_rate[["period", "value", "Geopolitical entity (reporting)"]].rename(
+    columns=(
+        {
+            "period": "Years",
+            "Geopolitical entity (reporting)": "Countries",
+            "value": "Inflation rate (HICP)",
+        }
+    )
+)
+
+df_ir["Years"] = pd.PeriodIndex(df_ir["Years"], freq="Y")
+df_ir["Years"] = df_ir["Years"].dt.strftime("%Y")
 
 
 # %%
-# List of the largest economies in Europe (can be adjusted)
 top_economies = [
+    "European Union - 27 countries (from 2020)",
     "Germany",
     "France",
     "Italy",
     "Spain",
-    "Netherland",
-    "European Union - 27 countries (from 2020)",
-    "Euro area – 20 countries (from 2023)",
+    "Netherlands",
+    "Poland",
+    "Sweden",
 ]
+df_ir_filtre = df_ir[df_ir["Countries"].isin(top_economies)]
 
-# Filter the DataFrame to only include the top economies
-df_top_economies = df_ir[df_ir["Geopolitical entity (reporting)"].isin(top_economies)]
-
-# Pivoting the DataFrame
-df_pivot = df_top_economies.pivot(
-    index="period",
-    columns="Geopolitical entity (reporting)",
-    values="value",
-)
-
-# Create the plot
-fig = px.line(
-    df_pivot,
-    title="Inflation Rate of Major Economies and Average",
+figir = px.line(
+    df_ir_filtre,
+    x="Years",
+    y="Inflation rate (HICP)",
+    color="Countries",
+    title="Inflation Rate of Major Economies in the EU",
     labels={
-        "year": "Year",
-        "value": "Inflation Rate (%)",
-        "country_code": "Country",
+        "Years": "Year",
+        "Inflation rate (HICP)": "Inflation Rate (%)",
+        "Countries": "Country/Region",
     },
 )
 
-# Customizing the layout
-fig.update_layout(
-    showlegend=True,
-    legend_title_text="Country/Region",
-    xaxis_title="Year",
-    yaxis_title="Inflation Rate (%)",
-)
 
-fig.show()
+figir.show()
 
 # %%

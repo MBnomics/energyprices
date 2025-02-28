@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -16,17 +15,17 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 
-# Jupyter
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
-
-# Virtual Environment
+# Environnements virtuels
+.env
+.venv
+env/
 venv/
-.env/
+ENV/
 
 # IDE
 .idea/
@@ -36,9 +35,4 @@ venv/
 
 # OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db

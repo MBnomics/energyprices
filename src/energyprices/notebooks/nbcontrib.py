@@ -5,13 +5,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 from dbnomics import fetch_series
 
-gas_price = fetch_series(
+contrib = fetch_series(
     "Eurostat",
-    "ten00118",
+    "prc_hicp_inw",
     dimensions={
         "freq": ["A"],
-        "unit": ["GJ_GCV"],
-        "indic_en": ["MSHH", "MSIND"],
+        "coicop": ["CP0451", "CP0452", "CP0453", "CP0454", "CP0455"],
         "geo": [
             "AT",  # Austria
             "BE",  # Belgium
@@ -44,46 +43,50 @@ gas_price = fetch_series(
             "EA20",  # from 2023
         ],
     },
-    max_nb_series=60,
+    max_nb_series=1000,
 )
-df_gas = gas_price[
-    ["period", "value", "Geopolitical entity (reporting)", "indic_en"]
+
+df_contrib = contrib[
+    ["period", "value", "Geopolitical entity (reporting)", "coicop"]
 ].rename(
     columns=(
         {
             "period": "Years",
             "Geopolitical entity (reporting)": "Countries",
-            "value": "Euro per GJ",
-            "indic_en": "Sector",
+            "value": "Total Contribution of energy to inflation rate",
+            "coicop": "Energy",
         }
     )
 )
-df_gas["Sector"] = df_gas["Sector"].replace(
+
+df_contrib["Energy"] = df_contrib["Energy"].replace(
     {
-        "MSHH": "Households",
-        "MSIND": "Non-Households (Industry)",
+        "CP0451": "Electricity",
+        "CP0452": "Gas",
+        "CP0453": "Liquid fuels",
+        "CP0454": "Solid fuels",
+        "CP0455": "Heat",
     }
 )
-df_gas["Years"] = pd.PeriodIndex(df_gas["Years"], freq="Y")
-df_gas["Years"] = df_gas["Years"].dt.strftime("%Y")
+df_contrib["Years"] = pd.PeriodIndex(df_contrib["Years"], freq="Y")
+df_contrib["Years"] = df_contrib["Years"].dt.strftime("%Y")
+
+df_contrib
 
 # %%
-countries = np.unique(df_gas["Countries"])
+countries = np.unique(df_contrib["Countries"])
 dfs = {}
 
 for country in countries:
-    dfs[f"df_gas_{country}"] = df_gas[df_gas["Countries"] == country]
+    dfs[f"df_contrib_{country}"] = df_contrib[df_contrib["Countries"] == country]
     fig = go.Figure()
-    fig = px.line(
-        dfs[f"df_gas_{country}"],
+    fig = px.bar(
+        dfs[f"df_contrib_{country}"],
         x="Years",
-        y="Euro per GJ",
-        color="Sector",
-        title=f"Gas prices in {country} by sector (€/GJ)",
-        color_discrete_map={
-            "Households": "orange",
-            "Non-Households (Industry)": "lightblue",
-        },
+        y="Total Contribution of energy to inflation rate",
+        color="Energy",
+        title=f"Energy Contribution to Inflation - {country}",
+        barmode="relative",
     )
     fig.show()
 

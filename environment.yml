@@ -1,0 +1,13 @@
+name: energyprices
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12 # Updated from 3.9 to 3.12
+  - pandas
+  - plotly
+  - streamlit
+  - pip
+  - pip:
+      - streamlit-option-menu==0.3.2
+      - dbnomics
