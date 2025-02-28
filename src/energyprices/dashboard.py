@@ -20,8 +20,8 @@ def main():
     sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
     package_dir = importlib.resources.files("energyprices")
 
-    st.set_page_config(page_title="Energy Prices in EU", page_icon=str(package_dir / "images /favicon.png"))
-    st.image(str(package_dir / "images /dbnomics.svg"), width=300)
+    st.set_page_config(page_title="Energy Prices in EU", page_icon=str(package_dir / "images/favicon.png"))
+    st.image(str(package_dir / "images/dbnomics.svg"), width=300)
     st.title(":blue[Energy Prices and Inflation in the European Union]")
 
     with st.sidebar:
