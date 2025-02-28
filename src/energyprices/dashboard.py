@@ -107,6 +107,10 @@ def main():
                   presented here, is essential for crafting effective solutions to navigate the current crisis and build a more resilient and 
                  economically stable future for the EU."""
         )
+        st.write(
+            "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+        )
+
     elif selected == "Data Visualization":
         tabs = st.tabs(
             ["Inflation", "Electricity Prices", "Gas Prices", "Energy Contribution"]
@@ -117,6 +121,9 @@ def main():
             df_ir = download_inflation_data()
             fig_ir = plot_inflation_rate(df_ir)
             st.plotly_chart(fig_ir)
+            st.write(
+                "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+            )
 
         with tabs[1]:
             st.header("Electricity Prices")
@@ -127,6 +134,9 @@ def main():
             )
             fig_elec = plot_electricity_prices(df_elec, selected_country)
             st.plotly_chart(fig_elec)
+            st.write(
+                "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+            )
 
         with tabs[2]:
             st.header("Gas Prices")
@@ -137,6 +147,9 @@ def main():
             )
             fig_gas = plot_gas_prices(df_gas, selected_country)
             st.plotly_chart(fig_gas)
+            st.write(
+                "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+            )
 
         with tabs[3]:
             st.header("Energy Contribution to Inflation")
@@ -147,6 +160,9 @@ def main():
             )
             fig_contrib = plot_energy_contribution(df_contrib, selected_country)
             st.plotly_chart(fig_contrib)
+            st.write(
+                "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+            )
 
     elif selected == "Sources":
         st.header("Data Sources")
@@ -160,6 +176,9 @@ def main():
         """
         )
         st.write("Visit [DBnomics](https://db.nomics.world/) for more information.")
+        st.write(
+            "*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*"
+        )
 
 
 if __name__ == "__main__":
