@@ -1,7 +1,12 @@
 pandas>=2.0.0
 plotly>=5.13.0
-dbnomics-python-client>=0.3.0
+streamlit>=1.29.0
+streamlit-option-menu>=0.3.2
+dbnomics>=2.0.0
 notebook>=7.0.0
 jupyterlab>=4.0.0
 ipykernel>=6.0.0
-dbnomics
+numpy>=1.24.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+dbnomics>=2.0.0
