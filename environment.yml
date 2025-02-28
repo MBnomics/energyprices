@@ -1,19 +1,8 @@
 name: energyprices
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - python=3.12
-  - pandas
-  - plotly
-  - streamlit
   - pip
   - pip:
-      - streamlit-option-menu==0.3.2
-      - dbnomics
-      - notebook
-      - jupyterlab
-      - ipykernel
-      - numpy
-      - python-dotenv
-      - requests
+      - -r requirements.txt
