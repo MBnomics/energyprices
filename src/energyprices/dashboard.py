@@ -47,7 +47,7 @@ def main():
         and the EU-27 as a whole. They highlight the sharp increase in inflation
         and the crucial role played by energy prices in this increase, especially after 2021.
         As we all know, the inflation that we experienced in the European Union in 2022 was caused by several factors.
-        The main factor was policies in response of the Covid-19 crisis. The European Central Bank (ECB) and other central banks
+        The main factor was policies in response to the Covid-19 crisis. The European Central Bank (ECB) and other central banks
         around the world have implemented a range of really expansionist monetary policy measures to support the economy significantly increasing liquidity.
         When this surge in money supply outpaced the recovery in production, it contributed to upward pressure on prices, as the classical
         quantitative theory of money suggests. But this is not the only factor that caused inflation in the EU. The energy crisis
@@ -66,9 +66,11 @@ def main():
             At the heart of this inflation surge lies a dramatic energy supply shock, 
                 because of "cost-push inflation." As we all know, we observed an exponential increase in gas and electricity prices starting
                 in 2021. Household gas costs, for example, jumped from approximately €18 per gigajoule
-                in 2020 to over €32 per gigajoule in 2022, . Similarly, electricity prices
+                in 2020 to over €32 per gigajoule in 2022. Similarly, electricity prices
                 for households also experienced a sharp ascent, rising from around €0.22 per kilowatt-hour in
-                2020 to nearly €0.30 per kilowatt-hour by 2023. This energy price spike directly translated
+                2020 to nearly €0.30 per kilowatt-hour by 2023. These increasing prices were even harder for industries. Even if they had
+                initially lower prices, they were nearly on par with what households were paying, before the typical price gap came back a bit later. 
+                This energy price spike directly translated
                 into increased production costs for European businesses across various sectors. Faced with higher 
                 energy bills, companies were compelled to raise prices on their goods and services to maintain profitability,
                 thus contributing to overall inflation. This mechanism is a textbook example of cost-push inflation, 
@@ -139,10 +141,7 @@ def main():
         st.markdown("&nbsp;")  # Ajout d'espace vertical
 
         st.write(
-            """<div style='text-align: justify;'>
-            *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-            </div>
-            """,
+            """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
             unsafe_allow_html=True,
         )
 
@@ -157,10 +156,7 @@ def main():
             fig_ir = plot_inflation_rate(df_ir)
             st.plotly_chart(fig_ir)
             st.write(
-                """<div style='text-align: justify;'>
-                *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-                </div>
-                """,
+                """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
                 unsafe_allow_html=True,
             )
 
@@ -174,10 +170,7 @@ def main():
             fig_elec = plot_electricity_prices(df_elec, selected_country)
             st.plotly_chart(fig_elec)
             st.write(
-                """<div style='text-align: justify;'>
-                *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-                </div>
-                """,
+                """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
                 unsafe_allow_html=True,
             )
 
@@ -191,10 +184,7 @@ def main():
             fig_gas = plot_gas_prices(df_gas, selected_country)
             st.plotly_chart(fig_gas)
             st.write(
-                """<div style='text-align: justify;'>
-                *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-                </div>
-                """,
+                """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
                 unsafe_allow_html=True,
             )
 
@@ -208,38 +198,34 @@ def main():
             fig_contrib = plot_energy_contribution(df_contrib, selected_country)
             st.plotly_chart(fig_contrib)
             st.write(
-                """<div style='text-align: justify;'>
-                *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-                </div>
-                """,
+                """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
                 unsafe_allow_html=True,
             )
 
     elif selected == "Sources":
         st.header("Data Sources")
         st.write(
-            """<div style='text-align: justify;'>
-        All data is sourced from Eurostat via DBnomics:
-        - Inflation rates: tec00118
-        - Electricity prices: ten00117
-        - Gas prices: ten00118
-        - Energy contribution to inflation: prc_hicp_inw
-        </div>
+            """
+        All data is sourced from Eurostat via DBnomics:     
+        - Inflation rates: tec00118     
+        - Electricity prices: ten00117      
+        - Gas prices: ten00118      
+        - Energy contribution to inflation: prc_hicp_inw    
+        
         """,
             unsafe_allow_html=True,
         )
         st.write(
-            """<div style='text-align: justify;'>
+            """
             Visit [DBnomics](https://db.nomics.world/) for more information.
-            </div>
+            
             """,
             unsafe_allow_html=True,
         )
+        st.markdown("&nbsp;")  # Ajout d'espace vertical
+
         st.write(
-            """<div style='text-align: justify;'>
-            *By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*
-            </div>
-            """,
+            """*By the students of the Student Association of the Master's program in Money, Banking, Finance, and Insurance at Paris 1 Panthéon-Sorbonne*""",
             unsafe_allow_html=True,
         )
 
