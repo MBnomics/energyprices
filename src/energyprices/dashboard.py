@@ -68,8 +68,8 @@ def main():
                 in 2021. Household gas costs, for example, jumped from approximately €18 per gigajoule
                 in 2020 to over €32 per gigajoule in 2022. Similarly, electricity prices
                 for households also experienced a sharp ascent, rising from around €0.22 per kilowatt-hour in
-                2020 to nearly €0.30 per kilowatt-hour by 2023. These increasing prices were even harder for industries. Even if they had
-                initially lower prices, they were nearly on par with what households were paying, before the typical price gap came back a bit later. 
+                2020 to nearly €0.30 per kilowatt-hour by 2023. These increasing prices were even harder for industries. Even though their
+                prices were initially lower, they got closer to what households were paying, before the usual price gap reappeared later. 
                 This energy price spike directly translated
                 into increased production costs for European businesses across various sectors. Faced with higher 
                 energy bills, companies were compelled to raise prices on their goods and services to maintain profitability,
