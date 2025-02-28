@@ -22,7 +22,7 @@ def main():
 
     st.set_page_config(page_title="Energy Prices in EU", page_icon=str(package_dir / "images /favicon.png"))
     st.image(str(package_dir / "images /dbnomics.svg"), width=300)
-    st.title("Energy Prices and Inflation in the European Union")
+    st.title(":blue[Energy Prices and Inflation in the European Union]")
 
     with st.sidebar:
         selected = option_menu(
